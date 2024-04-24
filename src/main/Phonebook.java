@@ -10,12 +10,14 @@ import java.util.logging.Logger;
 import lib.Edit;
 import lib.Menu;
 import lib.Info;
+import lib.FileIO;
 
 public class Phonebook {
     public static void main(String[] args) throws Exception {
         Edit edit = new Edit();
         Menu menu = new Menu();
         Info info = new Info(null, null, null, null);
+        FileIO fileIo = new FileIO();
         Scanner scan = new Scanner(System.in);
 
         int keyCnt = 0;
@@ -31,14 +33,7 @@ public class Phonebook {
 
         HashMap<String, Info> hashMap = new HashMap<String, Info>();
 
-        try{
-            ObjectInputStream ois = new ObjectInputStream(new FileInputStream("hashMapDB.txt"));
-            hashMap = (HashMap<String, Info>)ois.readObject();
-        } catch(IOException e){
-            Logger.getLogger(Info.class.getName()).log(Level.SEVERE, null, e);
-        } catch(ClassNotFoundException e){
-            Logger.getLogger(Info.class.getName()).log(Level.SEVERE, null, e);
-        }
+        hashMap = fileIo.fileIn();
         while (go) {
             try {
                 menu.Main();
@@ -72,12 +67,6 @@ public class Phonebook {
                     go = false;
             }
         }
-        try{
-            ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("hashmapDB.txt"));
-            oos.writeObject(hashMap);
-            oos.close();
-        } catch (IOException e){
-            Logger.getLogger(Info.class.getName()).log(Level.SEVERE,null,e);
-        }
+        fileIo.fileOut(hashMap);
     }
 }
