@@ -2,13 +2,13 @@ package lib;
 
 import java.io.Serializable;
 
-public class Info implements Serializable{
+public class Contacts implements Serializable{
     private String name;
     private String number;
     private String address;
     private String relation;
 
-    public Info (String name, String number, String address, String relation) {
+    public Contacts (String name, String number, String address, String relation) {
         this.name = name;
         this.number = number;
         this.address = address;

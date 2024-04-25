@@ -6,14 +6,13 @@ import java.util.Scanner;
 
 import lib.Edit;
 import lib.Menu;
-import lib.Info;
+import lib.Contacts;
 import lib.FileIO;
 
 public class Phonebook {
     public static void main(String[] args) throws Exception {
         Edit edit = new Edit();
         Menu menu = new Menu();
-        // Info info = new Info(null, null, null, null);
         FileIO fileIo = new FileIO();
         Scanner scan = new Scanner(System.in);
 
@@ -23,9 +22,9 @@ public class Phonebook {
         String tempName = "";
         boolean go = true;
 
-        HashMap<String, Info> hashMap = new HashMap<String, Info>();
+        HashMap<String, Contacts> hashMap = new HashMap<String, Contacts>();
 
-        hashMap = fileIo.fileIn();
+        hashMap = fileIo.fileIn(hashMap);
         while (go) {
             try {
                 menu.Main();
