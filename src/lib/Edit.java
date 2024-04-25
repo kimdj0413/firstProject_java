@@ -2,11 +2,7 @@ package lib;
 
 import java.util.Scanner;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
-import lib.Error;
-import lib.Info;
-import lib.Menu;
 
 public class Edit {
     Info info = new Info(null, null, null, null);
@@ -85,5 +81,14 @@ public class Edit {
         thisIs(hashMap, keyTemp, null);
 
         hashMap.remove(keyTemp);
+    }
+
+    public void Select(HashMap<String, Info> hashMap) {
+        thisIs(hashMap, null, null);
+        for (String key : hashMap.keySet()) {
+            System.out.println("회원정보 : 이름 = " + hashMap.get(key).getName() + ", 전화번호 : "
+                    + hashMap.get(key).getNumber() + ", 주소 : " + hashMap.get(key).getAddress() + ", 관계 : "
+                    + hashMap.get(key).getRelation());
+        }
     }
 }

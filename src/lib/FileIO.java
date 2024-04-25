@@ -2,12 +2,8 @@ package lib;
 
 import java.io.*;
 import java.util.HashMap;
-import java.util.InputMismatchException;
-import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-
-import lib.Info;
 
 public class FileIO {
     Info info = new Info(null, null, null, null);
